@@ -1,10 +1,3 @@
-Cypress.Commands.add('HomePage', () => {
-  cy.visit('http://automationexercise.com');
-  cy.contains('Full-Fledged practice website for Automation Engineers').should(
-    'be.visible'
-  );
-});
-
 Cypress.Commands.add('registration', (userData) => {
   cy.get('.shop-menu > .nav > :nth-child(4)').click();
   cy.get('.signup-form > h2').should('have.text', 'New User Signup!');
@@ -37,6 +30,15 @@ Cypress.Commands.add('registration', (userData) => {
   cy.contains(`Logged in as ${userData.name}`).should('be.visible');
 });
 
+Cypress.Commands.add('loginIncorrect', (userData) => {
+  cy.get('.shop-menu > .nav > :nth-child(4)').click();
+  cy.contains('Login to your account').should('be.visible');
+  cy.get('[data-qa="login-email"]').type(userData.email);
+  cy.get('[data-qa="login-password"]').type(userData.password);
+  cy.get('[data-qa="login-button"]').click();
+  cy.contains('Your email or password is incorrect!').should('be.visible');
+});
+
 Cypress.Commands.add('login', (userData) => {
   cy.get('.shop-menu > .nav > :nth-child(4)').click();
   cy.contains('Login to your account').should('be.visible');
@@ -46,11 +48,9 @@ Cypress.Commands.add('login', (userData) => {
   cy.contains(`Logged in as ${userData.name}`).should('be.visible');
 });
 
-Cypress.Commands.add('loginIncorrect', (userData) => {
-  cy.get('.shop-menu > .nav > :nth-child(4)').click();
-  cy.contains('Login to your account').should('be.visible');
-  cy.get('[data-qa="login-email"]').type(userData.email);
-  cy.get('[data-qa="login-password"]').type(userData.password);
-  cy.get('[data-qa="login-button"]').click();
-  cy.contains('Your email or password is incorrect!').should('be.visible');
+Cypress.Commands.add('HomePage', () => {
+  cy.visit('http://automationexercise.com');
+  cy.contains('Full-Fledged practice website for Automation Engineers').should(
+    'be.visible'
+  );
 });
