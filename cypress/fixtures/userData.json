@@ -1,0 +1,20 @@
+{
+  "name": "Harrypo",
+  "email": "harrypo@potter.com",
+  "password": "12345678",
+  "birthdate": {
+    "day": "21",
+    "month": "July",
+    "year": "1980"
+  },
+  "firstName": "harry",
+  "lastName": "potter",
+  "company": "hogwarts",
+  "address1": "4 Privet Drive",
+  "address2": "4 Privet Drive",
+  "country": "Canada",
+  "state": "ontario",
+  "city": "ontario",
+  "zipcode": "1234",
+  "mobileNumber": "123456"
+}
